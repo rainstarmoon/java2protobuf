@@ -1,274 +1,274 @@
 message BondInfo {
 	/**
-	 * Ö¤È¯´úÂë
+	 * è¯åˆ¸ä»£ç 
 	 */
-	string secuCode=14;
+    string secuCode = 1;
 	/**
-	 * Ö¤È¯´úÂë
+	 * è¯åˆ¸ä»£ç 
 	 */
-	string bondMHCode=18;
+    string bondMHCode = 2;
 	/**
-	 * Ö¤È¯Ãû³Æ
+	 * è¯åˆ¸åç§°
 	 */
-	string secuName=22;
+    string secuName = 3;
 	/**
-	 * Ö¤È¯ÀàĞÍ
+	 * è¯åˆ¸ç±»å‹
 	 */
-	string secuType=26;
+    string secuType = 4;
 	/**
-	 * ·ÖÀà1
+	 * åˆ†ç±»1
 	 */
-	string class1=30;
+    string class1 = 5;
 	/**
-	 * ·ÖÀà2
+	 * åˆ†ç±»2
 	 */
-	string class2=34;
+    string class2 = 6;
 	/**
-	 * ·ÖÀà3
+	 * åˆ†ç±»3
 	 */
-	string class3=38;
+    string class3 = 7;
 	/**
-	 * ·ÖÀà4
+	 * åˆ†ç±»4
 	 */
-	string class4=42;
+    string class4 = 8;
 	/**
-	 * ÊĞˆö
+	 * å¸‚å ´
 	 */
-	string market=46;
+    string market = 9;
 	/**
-	 * Æ±ÃæÄêÀûÂÊ
+	 * ç¥¨é¢å¹´åˆ©ç‡
 	 */
-	double parIr=50;
+    double parIr = 10;
 	/**
-	 * Õ®È¯ÃæÖµ
+	 * å€ºåˆ¸é¢å€¼
 	 */
-	double parValue=54;
+    double parValue = 11;
 	/**
-	 * ·¢ĞĞ¼Û¸ñ
+	 * å‘è¡Œä»·æ ¼
 	 */
-	double issuePrice=58;
+    double issuePrice = 12;
 	/**
-	 * ·¢ĞĞ¹æÄ£
+	 * å‘è¡Œè§„æ¨¡
 	 */
-	double issueAmt=62;
+    double issueAmt = 13;
 	/**
-	 * ·¢ĞĞÈË
+	 * å‘è¡Œäºº
 	 */
-	string issuer=66;
+    string issuer = 14;
 	/**
-	 * ³ĞÏúÈË
+	 * æ‰¿é”€äºº
 	 */
-	repeated String> underwriter=70;
+    repeated string underwriter = 15;
 	/**
-	 * µ£±£ÈË
+	 * æ‹…ä¿äºº
 	 */
-	repeated String> guarantee=75;
+    repeated string guarantee = 16;
 	/**
-	 * ABSÔ­Ê¼È¨ÒæÈË
+	 * ABSåŸå§‹æƒç›Šäºº
 	 */
-	string beneficiary=80;
+    string beneficiary = 17;
 	/**
-	 * ABSÔ­Ê¼È¨ÒæÈË(¶à¸ö)
+	 * ABSåŸå§‹æƒç›Šäºº(å¤šä¸ª)
 	 */
-	repeated String> beneficiaries=85;
+    repeated string beneficiaries = 18;
 	/**
-	 * ÊÇ·ñ¹«¿ª·¢ĞĞ
+	 * æ˜¯å¦å…¬å¼€å‘è¡Œ
 	 */
-	bool isPublicIssued=90;
+    bool isPublicIssued = 19;
 	/**
 	 * IA TYPE
 	 */
-	string IAType=96;
+    string IAType = 20;
 	/**
-	 * ¾ÛÔ´Maincode
+	 * èšæºMaincode
 	 */
-	int64 jyMainCode=102;
+    int64 jyMainCode = 21;
 	/**
-	 * ¾ÛÔ´innercode
+	 * èšæºinnercode
 	 */
-	string jyInnerCode=108;
+    string jyInnerCode = 22;
 	/**
-	 * Õ®È¯¹«Ë¾ÕûÌå³Ö²ÖÉÏÏß
+	 * å€ºåˆ¸å…¬å¸æ•´ä½“æŒä»“ä¸Šçº¿
 	 */
-	double upRatio=113;
-	// ÆÀ¼¶ĞÅÏ¢
+    double upRatio = 23;
+	// è¯„çº§ä¿¡æ¯
 	/**
-	 * ×î½üÎåÄêÕ®È¯ËùÓĞÍâ²¿ÆÀ¼¶<ÆÀ¼¶»ú¹¹£¬¾ßÌåÆÀ¼¶>
+	 * æœ€è¿‘äº”å¹´å€ºåˆ¸æ‰€æœ‰å¤–éƒ¨è¯„çº§<è¯„çº§æœºæ„ï¼Œå…·ä½“è¯„çº§>
 	 */
-	map<String, repeated ExternalBondRating>> externalBondRatingAll=119;
+    map<string, ExternalBondRatings> externalBondRatingAll = 24;
 	/**
-	 * ×î½üÎåÄêÕ®È¯ËùÓĞÄÚ²¿ÆÀ¼¶
+	 * æœ€è¿‘äº”å¹´å€ºåˆ¸æ‰€æœ‰å†…éƒ¨è¯„çº§
 	 */
-	repeated InternalBondRating> internalBondRatingAll=124;
+    repeated InternalBondRating internalBondRatingAll = 25;
 	/**
-	 * ×î½üÎåÄêÕ®È¯ËùÓĞÄÚ²¿ÆÀ¼¶(ĞÂÌåÏµ)
+	 * æœ€è¿‘äº”å¹´å€ºåˆ¸æ‰€æœ‰å†…éƒ¨è¯„çº§(æ–°ä½“ç³»)
 	 */
-	repeated NewInternalBondRating> newInternalBondRatingAll=129;
+    repeated NewInternalBondRating newInternalBondRatingAll = 26;
 	/**
-	 * ×î½üÎåÄêÕ®È¯ËùÓĞÍâ²¿ÆÀ¼¶Õ¹Íû<ÆÀ¼¶»ú¹¹£¬¾ßÌåÆÀ¼¶>
+	 * æœ€è¿‘äº”å¹´å€ºåˆ¸æ‰€æœ‰å¤–éƒ¨è¯„çº§å±•æœ›<è¯„çº§æœºæ„ï¼Œå…·ä½“è¯„çº§>
 	 */
-	map<String, repeated ExternalBondRatingOutlook>> externalBondRatingOutlookAll=134;
+    map<string, ExternalBondRatingOutlooks> externalBondRatingOutlookAll = 27;
 	/**
-	 * ×î½üÎåÄêÕ®È¯ËùÓĞÄÚ²¿ÆÀ¼¶Õ¹Íû
+	 * æœ€è¿‘äº”å¹´å€ºåˆ¸æ‰€æœ‰å†…éƒ¨è¯„çº§å±•æœ›
 	 */
-	repeated InternalBondRatingOutlook> internalBondRatingOutlookAll=139;
+    repeated InternalBondRatingOutlook internalBondRatingOutlookAll = 28;
 //	/**
-//	 * Íâ²¿Ä¬ÈÏÕ®ÏîÆÀ¼¶µÄ»ú¹¹
+//	 * å¤–éƒ¨é»˜è®¤å€ºé¡¹è¯„çº§çš„æœºæ„
 //	 *
 //	 */
-//	string externalRatingParty=145;
+//	private String externalRatingParty;
 //	/**
-//	 * Íâ²¿Ä¬ÈÏÕ®ÏîÆÀ¼¶
+//	 * å¤–éƒ¨é»˜è®¤å€ºé¡¹è¯„çº§
 //	 *
 //	 */
-//	string externalRating=150;
+//	private String externalRating;
 //	/**
-//	 * ÄÚ²¿Ä¬ÈÏÕ®ÏîÆÀ¼¶
+//	 * å†…éƒ¨é»˜è®¤å€ºé¡¹è¯„çº§
 //	 *
 //	 */
-//	string internalRating=155;
+//	private String internalRating;
 //	/**
-//	 * Íâ²¿Õ®ÏîÕ¹Íû
+//	 * å¤–éƒ¨å€ºé¡¹å±•æœ›
 //	 * 
 //	 */
-//	string externalRatingOutlook=160;
+//	private String externalRatingOutlook;
 //	/**
-//	 * ÄÚ²¿Õ®ÏîÕ¹Íû
+//	 * å†…éƒ¨å€ºé¡¹å±•æœ›
 //	 * 
 //	 */
-//	string internalRatingOutlook=165;
+//	private String internalRatingOutlook;
 	/**
-	 * ÖĞ½ğÕ®ÏîÆÀ¼¶
+	 * ä¸­é‡‘å€ºé¡¹è¯„çº§
 	 * 
 	 */
-	string CIICRating=170;
+    string CIICRating = 29;
 	/**
-	 * ÖĞÕ®µÇ¹ÀÖµ¾»¼Û
+	 * ä¸­å€ºç™»ä¼°å€¼å‡€ä»·
 	 */
-	double ChinaBondCleanPrice=174;
+    double ChinaBondCleanPrice = 30;
 	/**
-	 * ÖĞÕ®µÇ¹ÀÖµÈ«¼Û
+	 * ä¸­å€ºç™»ä¼°å€¼å…¨ä»·
 	 */
-	double ChinaBondFullPrice=178;
+    double ChinaBondFullPrice = 31;
 	/**
-	 * ÖĞÕ®µÇ¹À¼ÛÊÕÒæÂÊ
+	 * ä¸­å€ºç™»ä¼°ä»·æ”¶ç›Šç‡
 	 */
-	double ChinaBondYield=182;
+    double ChinaBondYield = 32;
 	/**
-	 * ÖĞÕ®µÇÍÆ¼ö¾ÃÆÚ
+	 * ä¸­å€ºç™»æ¨èä¹…æœŸ
 	 */
-	double ChinaBondDuration=186;
+    double ChinaBondDuration = 33;
 	/**
-	 * ÖĞÖ¤µÇ¹À¼Û¾»¼Û
+	 * ä¸­è¯ç™»ä¼°ä»·å‡€ä»·
 	 */
-	double CSDCNetPrice=190;
+    double CSDCNetPrice = 34;
 	/**
-	 * ÖĞÖ¤µÇ¹À¼ÛÈ«¼Û
+	 * ä¸­è¯ç™»ä¼°ä»·å…¨ä»·
 	 */
-	double CSDCFullPrice=194;
+    double CSDCFullPrice = 35;
 	/**
-	 * ÖĞÖ¤µÇ¹À¼ÛÊÕÒæÂÊ
+	 * ä¸­è¯ç™»ä¼°ä»·æ”¶ç›Šç‡
 	 */
-	double CSDCYield=198;
+    double CSDCYield = 36;
 	/**
-	 * ÖĞÖ¤µÇ¹À¼ÛĞŞÕı¾ÃÆÚ
+	 * ä¸­è¯ç™»ä¼°ä»·ä¿®æ­£ä¹…æœŸ
 	 */
-	double CSDCDuration=202;
+    double CSDCDuration = 37;
 	/**
-	 * ÆğÏ¢ÈÕ
+	 * èµ·æ¯æ—¥
 	 */
-	int64 valueDate=207;
+    int64 valueDate = 38;
 	/**
-	 * µ½ÆÚÈÕ
+	 * åˆ°æœŸæ—¥
 	 */
-	int64 dueDate=211;
+    int64 dueDate = 39;
 	/**
-	 * ¸¶Ï¢ÆµÂÊ
+	 * ä»˜æ¯é¢‘ç‡
 	 */
-	string payinterestFreq=215;
+    string payinterestFreq = 40;
 	/**
-	 * Ï¢Æ±ÀàĞÍ
+	 * æ¯ç¥¨ç±»å‹
 	 */
-	string interestPmtType=219;
+    string interestPmtType = 41;
 	/**
-	 * ÀûÂÊÀàĞÍ
+	 * åˆ©ç‡ç±»å‹
 	 */
-	string interestType=223;
+    string interestType = 42;
 	/**
-	 * Õ®È¯ÆÚÏŞ(Ìì)
+	 * å€ºåˆ¸æœŸé™(å¤©)
 	 */
-	int32 term=227;
+    int32 term = 43;
 	/**
-	 * ×î½üĞĞÈ¨ÈÕ
+	 * æœ€è¿‘è¡Œæƒæ—¥
 	 */
-	int64 latestEDay=232;
+    int64 latestEDay = 44;
 	/**
-	 * ÏÂÒ»¸ö¸¶Ï¢ÈÕ
+	 * ä¸‹ä¸€ä¸ªä»˜æ¯æ—¥
 	 */
-	int64 nextCouponDate=237;
+    int64 nextCouponDate = 45;
 	/**
-	 * Õ®È¯ÏÖ½ğÁ÷
+	 * å€ºåˆ¸ç°é‡‘æµ
 	 */
-	map<Date, BondCashFlow> cashFlow=243;
+    map<int64, BondCashFlow cashFlow = 46;
 	/**
-	 * ÊÇ·ñº¬È¨
+	 * æ˜¯å¦å«æƒ
 	 */
-	bool isRightInvolved=248;
+    bool isRightInvolved = 47;
 	/**
-	 * Ñ¡ÔñÈ¨ÀàĞÍ
+	 * é€‰æ‹©æƒç±»å‹
 	 */
-	repeated String> optionTypes=253;
+    repeated string optionTypes = 48;
 	/**
-	 * ÊÇ·ñ³ÇÍ¶Õ®
+	 * æ˜¯å¦åŸæŠ•å€º
 	 */
-	bool isCityBond=258;
+    bool isCityBond = 49;
 	/**
-	 * ÊÇ·ñABSÓÅÏÈ¼¶
+	 * æ˜¯å¦ABSä¼˜å…ˆçº§
 	 */
-	bool isABSSup=263;
+    bool isABSSup = 50;
 	/**
-	 * ABS¼¶±ğ
+	 * ABSçº§åˆ«
 	 */
-	string ABSLevel=268;
+    string ABSLevel = 51;
 	/**
-	 * ÊÇ·ñÓÀĞøÕ®
+	 * æ˜¯å¦æ°¸ç»­å€º
 	 */
-	bool isPerpetualBond=273;
+    bool isPerpetualBond = 52;
 	/**
-	 * ÊÇ·ñ¶ÌÈÚÈ¯
+	 * æ˜¯å¦çŸ­èåˆ¸
 	 */
-	bool isShortTermBond=278;
+    bool isShortTermBond = 53;
 	/**
-	 * ÊÇ·ñ×îºóÒ»¸öÀûÂÊµ÷ÕûÆÚ
+	 * æ˜¯å¦æœ€åä¸€ä¸ªåˆ©ç‡è°ƒæ•´æœŸ
 	 */
-	bool isLastTerm=283;
+    bool isLastTerm = 54;
 	/**
-	 * ¸¡Ï¢Õ®µÄ»ù×¼ÀûÂÊÀàĞÍ
+	 * æµ®æ¯å€ºçš„åŸºå‡†åˆ©ç‡ç±»å‹
 	 */
-	string baseIRType=288;
+    string baseIRType = 55;
 	/**
-	 * Ö¤È¯±àÂë£¨symbol+market£©
+	 * è¯åˆ¸ç¼–ç ï¼ˆsymbol+marketï¼‰
 	 */
-	string combSymbol=293;
+    string combSymbol = 56;
 	/**
-	 * Õ®ÏîÍ¶×ÊÍÆ¼öÆÀ¼¶±í IA_RATING_BOND_INVEST_RCMD
-	 * ²»ÄÜĞÂÔöÂòÈë
+	 * å€ºé¡¹æŠ•èµ„æ¨èè¯„çº§è¡¨ IA_RATING_BOND_INVEST_RCMD
+	 * ä¸èƒ½æ–°å¢ä¹°å…¥
 	 */
-	bool isIANotInvest=300;
+    bool isIANotInvest = 57;
 	/**
-	 * ÇåËã³¡Ëù<>001=1=ÖĞÕ®µÇ&002=2=ÉÏÇåËù&003=3=ÖĞÕ®µÇÉÏº£·Ö¹«Ë¾&004=4=ÖĞÕ®µÇÉîÛÚ·Ö¹«Ë¾
+	 * æ¸…ç®—åœºæ‰€<>001=1=ä¸­å€ºç™»&002=2=ä¸Šæ¸…æ‰€&003=3=ä¸­å€ºç™»ä¸Šæµ·åˆ†å…¬å¸&004=4=ä¸­å€ºç™»æ·±åœ³åˆ†å…¬å¸
 	 */
-	string settingHcode=305;
+    string settingHcode = 58;
 	/**
-	 * ÉÏÊĞÈÕÆÚ
+	 * ä¸Šå¸‚æ—¥æœŸ
 	 */
-	int64 listDate=310;
+    int64 listDate = 59;
 	/**
-	 * ±¾½ğ³¥»¹·½Ê½
+	 * æœ¬é‡‘å¿è¿˜æ–¹å¼
 	 */
-	string redemMethod=315;
-	//ÉÏÇåËù
-	public static final string SETTING_HCODE_SH = "SH"=318;
-	//ÖĞÕ®µÇ
-	public static final string SETTING_HCODE_IB = "IB"=320;
+    string redemMethod = 60;
+	//ä¸Šæ¸…æ‰€
+    public static final string SETTING_HCODE_SH = "SH" = 61;
+	//ä¸­å€ºç™»
+    public static final string SETTING_HCODE_IB = "IB" = 62;
 }

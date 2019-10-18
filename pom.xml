@@ -12,6 +12,8 @@
     <description>java文件转protobuf文件</description>
 
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
         <protobuf.version>3.4.0</protobuf.version>
     </properties>
@@ -25,5 +27,47 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>gbk</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>true</addMavenDescriptor>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.xiazeyu.ToolApplication</mainClass>
+                        </manifest>
+                        <manifestEntries>
+                            <Class-Path>./</Class-Path>
+                        </manifestEntries>
+                    </archive>
+                    <!-- 过滤掉不希望包含在jar中的文件  -->
+                    <excludes>
+                        <exclude>demo/**</exclude>
+                    </excludes>
+                    <!-- 这里不做举例了 -->
+<!--                    <includes>-->
+<!--                        <include></include>-->
+<!--                    </includes>-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
