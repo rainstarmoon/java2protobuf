@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option java_package = "com.iquantex.ts.cre.data.process.message.protobuf";
+
+option java_outer_classname = "REDataIBCounter";
+
+// 银行间交易对手方
+message IBCounterInfo {
+    string code = 1;
+
+    repeated string parentCode = 2;
+
+    string cname = 3;
+
+    string class1 = 4;
+
+    string class2 = 5;
+
+    string partyHcode = 6;
+
+    repeated string labels = 7;
+}
+
+message IBCounterList {
+    string fundType = 1;
+
+    repeated string poolList = 2;
+}
+
+message IBCounterPool {
+    string ibcounterPoolId = 1;
+
+    repeated string ibcounterCodeList = 2;
+
+    repeated CounterClsItem clsItems = 3;
+}
+
+message CounterClsItem {
+    string clsName = 1;
+
+    repeated string counterClses = 2;
+
+    repeated string counterLabels = 3;
+
+    repeated string partyLabels = 4;
+
+    repeated string partyCounters = 5;
+
+    repeated string fundCounters = 6;
+}

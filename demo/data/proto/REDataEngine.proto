@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option java_package = "com.iquantex.ts.cre.data.process.message.protobuf";
+
+option java_outer_classname = "REDataEngine";
+
+// 引擎系统日期
+message EngineDate {
+    int64 curDate = 1;
+}

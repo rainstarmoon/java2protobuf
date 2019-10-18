@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_package = "com.iquantex.ts.cre.data.process.message.protobuf";
+
+option java_outer_classname = "REDataRating";
+
+// 评级机构名单
+message RatingPartyInfo {
+
+    repeated string ratingPartyList = 1;
+
+}

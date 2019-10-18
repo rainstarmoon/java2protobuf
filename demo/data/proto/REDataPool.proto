@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "com.iquantex.ts.cre.data.process.message.protobuf";
+
+option java_outer_classname = "REDataPool";
+
+import public "REDataCommon.proto";
+
+// 证券池
+message SecuPool {
+    string poolId = 1;
+
+    repeated string codeList = 2;
+}
+
+// 投向池
+message InvestPool {
+    string fundType = 1;
+
+    repeated string poolList = 2;
+}

@@ -1,0 +1,122 @@
+syntax = "proto3";
+
+option java_package = "com.iquantex.ts.cre.data.process.message.protobuf";
+
+option java_outer_classname = "REDataParty";
+
+import public "REDataCommon.proto";
+
+// 主体信息
+message PartyInfo {
+    // 主体内部编码
+    string code = 1;
+    // 中文名称
+    string cname = 2;
+    // 注册地编码
+    string regRegionCode = 3;
+    // 申万行业分类一级
+    string swIndustryClass1 = 4;
+    // 申万行业分类二级
+    string swIndustryClass2 = 5;
+    // 申万行业三级分类级
+    string swIndustryClass3 = 6;
+    // 经济性质
+    string ecoType = 7;
+    // 机构性质
+    string partyType = 8;
+    // 聚源的机构代码
+    string jyCode = 9;
+    // 主体标签
+    repeated string labels = 10;
+    // 主体所有外部评级<评级机构，具体评级>
+    map<string, ExternalPartyRatings> externalPartyRatingAll = 11;
+    // 主体所有内部评级
+    repeated InternalPartyRating internalPartyRatingAll = 12;
+    // 主体所有内部评级(新体系)
+    repeated NewInternalPartyRating newInternalPartyRatingAll = 13;
+    // 主体所有外部评级展望
+    map<string, ExternalPartyRatingOutlooks> externalPartyRatingOutlookAll = 14;
+    // 主体所有内部评级展望
+    repeated InternalPartyRatingOutlook internalPartyRatingOutlookAll = 15;
+    // 中金主体评级
+    string CIICPartyRating = 16;
+    // 所有发行债券总规模
+    double totalBondAmt = 17;
+    // 作为原始权益人的ABS发行
+    double totalOriginBondAmt = 18;
+    // 净资产
+    double netAsset = 19;
+    // 总资产
+    double aggregatedAsset = 20;
+    // 资产充足率
+    double assetAdequacy = 21;
+    // 存款总规模
+    double totalDeposit = 22;
+    // 拨备覆盖率
+    double provisionCoverage = 23;
+    // 资产负债率
+    double debt2Assets = 24;
+    // 是否地方政府融资平台
+    bool isGovFiPlatform = 25;
+    // 是否上市
+    bool isListed = 26;
+    // 是否股份制
+    bool isShareHoldingCompany = 227;
+    // 是否具有基金托管资格
+    bool hasFundCustodyPerm = 28;
+    // 是否全国银行间债券市场国债承购包销团成员
+    bool isIBBondMarketMember = 29;
+    // 是否中国人民银行公开市场业务一级交易商成员
+    bool isPBCOpenMarkeyMember = 30;
+    // IA里CD允许的银行  iit.ib_bank_range
+    bool isIACDBank = 31;
+    // 该主体作为发行人发行的所有债券
+    repeated string issuedBonds = 32;
+    // 该主体作为原始权益人发起的所有债券
+    repeated string originatedBonds = 33;
+    // 违约债券发行人
+    bool isBondDefalutParty = 34;
+}
+
+message ExternalPartyRating {
+    // 父类对象
+    ExternalRating parent = 1;
+
+    string partyCode = 2;
+}
+
+message ExternalPartyRatings {
+    repeated ExternalPartyRating items = 1;
+}
+
+message ExternalPartyRatingOutlook {
+    // 父类对象
+    ExternalRating parent = 1;
+
+    string partyCode = 2;
+}
+
+message ExternalPartyRatingOutlooks {
+    repeated ExternalPartyRatingOutlook items = 1;
+}
+
+message InternalPartyRating {
+    // 父类对象
+    InternalRating parent = 1;
+
+    string partyCode = 2;
+}
+
+message NewInternalPartyRating {
+    // 父类对象
+    InternalRating parent = 1;
+
+    string partyCode = 2;
+}
+
+message InternalPartyRatingOutlook {
+    // 父类对象
+    InternalRating parent = 1;
+
+    string partyCode = 2;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_package = "com.iquantex.ts.cre.data.process.message.protobuf";
+
+option java_outer_classname = "REDataRepo";
+
+// 回购信息
+message RepoInfo {
+    string secuCode = 1;
+
+    string marketCode = 2;
+
+    string secuName = 3;
+
+    string cname = 4;
+
+    string combSymbol = 5;
+}
