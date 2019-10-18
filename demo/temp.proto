@@ -1,0 +1,274 @@
+message BondInfo {
+	/**
+	 * 证券代码
+	 */
+	string secuCode=14;
+	/**
+	 * 证券代码
+	 */
+	string bondMHCode=18;
+	/**
+	 * 证券名称
+	 */
+	string secuName=22;
+	/**
+	 * 证券类型
+	 */
+	string secuType=26;
+	/**
+	 * 分类1
+	 */
+	string class1=30;
+	/**
+	 * 分类2
+	 */
+	string class2=34;
+	/**
+	 * 分类3
+	 */
+	string class3=38;
+	/**
+	 * 分类4
+	 */
+	string class4=42;
+	/**
+	 * 市場
+	 */
+	string market=46;
+	/**
+	 * 票面年利率
+	 */
+	double parIr=50;
+	/**
+	 * 债券面值
+	 */
+	double parValue=54;
+	/**
+	 * 发行价格
+	 */
+	double issuePrice=58;
+	/**
+	 * 发行规模
+	 */
+	double issueAmt=62;
+	/**
+	 * 发行人
+	 */
+	string issuer=66;
+	/**
+	 * 承销人
+	 */
+	repeated String> underwriter=70;
+	/**
+	 * 担保人
+	 */
+	repeated String> guarantee=75;
+	/**
+	 * ABS原始权益人
+	 */
+	string beneficiary=80;
+	/**
+	 * ABS原始权益人(多个)
+	 */
+	repeated String> beneficiaries=85;
+	/**
+	 * 是否公开发行
+	 */
+	bool isPublicIssued=90;
+	/**
+	 * IA TYPE
+	 */
+	string IAType=96;
+	/**
+	 * 聚源Maincode
+	 */
+	int64 jyMainCode=102;
+	/**
+	 * 聚源innercode
+	 */
+	string jyInnerCode=108;
+	/**
+	 * 债券公司整体持仓上线
+	 */
+	double upRatio=113;
+	// 评级信息
+	/**
+	 * 最近五年债券所有外部评级<评级机构，具体评级>
+	 */
+	map<String, repeated ExternalBondRating>> externalBondRatingAll=119;
+	/**
+	 * 最近五年债券所有内部评级
+	 */
+	repeated InternalBondRating> internalBondRatingAll=124;
+	/**
+	 * 最近五年债券所有内部评级(新体系)
+	 */
+	repeated NewInternalBondRating> newInternalBondRatingAll=129;
+	/**
+	 * 最近五年债券所有外部评级展望<评级机构，具体评级>
+	 */
+	map<String, repeated ExternalBondRatingOutlook>> externalBondRatingOutlookAll=134;
+	/**
+	 * 最近五年债券所有内部评级展望
+	 */
+	repeated InternalBondRatingOutlook> internalBondRatingOutlookAll=139;
+//	/**
+//	 * 外部默认债项评级的机构
+//	 *
+//	 */
+//	string externalRatingParty=145;
+//	/**
+//	 * 外部默认债项评级
+//	 *
+//	 */
+//	string externalRating=150;
+//	/**
+//	 * 内部默认债项评级
+//	 *
+//	 */
+//	string internalRating=155;
+//	/**
+//	 * 外部债项展望
+//	 * 
+//	 */
+//	string externalRatingOutlook=160;
+//	/**
+//	 * 内部债项展望
+//	 * 
+//	 */
+//	string internalRatingOutlook=165;
+	/**
+	 * 中金债项评级
+	 * 
+	 */
+	string CIICRating=170;
+	/**
+	 * 中债登估值净价
+	 */
+	double ChinaBondCleanPrice=174;
+	/**
+	 * 中债登估值全价
+	 */
+	double ChinaBondFullPrice=178;
+	/**
+	 * 中债登估价收益率
+	 */
+	double ChinaBondYield=182;
+	/**
+	 * 中债登推荐久期
+	 */
+	double ChinaBondDuration=186;
+	/**
+	 * 中证登估价净价
+	 */
+	double CSDCNetPrice=190;
+	/**
+	 * 中证登估价全价
+	 */
+	double CSDCFullPrice=194;
+	/**
+	 * 中证登估价收益率
+	 */
+	double CSDCYield=198;
+	/**
+	 * 中证登估价修正久期
+	 */
+	double CSDCDuration=202;
+	/**
+	 * 起息日
+	 */
+	int64 valueDate=207;
+	/**
+	 * 到期日
+	 */
+	int64 dueDate=211;
+	/**
+	 * 付息频率
+	 */
+	string payinterestFreq=215;
+	/**
+	 * 息票类型
+	 */
+	string interestPmtType=219;
+	/**
+	 * 利率类型
+	 */
+	string interestType=223;
+	/**
+	 * 债券期限(天)
+	 */
+	int32 term=227;
+	/**
+	 * 最近行权日
+	 */
+	int64 latestEDay=232;
+	/**
+	 * 下一个付息日
+	 */
+	int64 nextCouponDate=237;
+	/**
+	 * 债券现金流
+	 */
+	map<Date, BondCashFlow> cashFlow=243;
+	/**
+	 * 是否含权
+	 */
+	bool isRightInvolved=248;
+	/**
+	 * 选择权类型
+	 */
+	repeated String> optionTypes=253;
+	/**
+	 * 是否城投债
+	 */
+	bool isCityBond=258;
+	/**
+	 * 是否ABS优先级
+	 */
+	bool isABSSup=263;
+	/**
+	 * ABS级别
+	 */
+	string ABSLevel=268;
+	/**
+	 * 是否永续债
+	 */
+	bool isPerpetualBond=273;
+	/**
+	 * 是否短融券
+	 */
+	bool isShortTermBond=278;
+	/**
+	 * 是否最后一个利率调整期
+	 */
+	bool isLastTerm=283;
+	/**
+	 * 浮息债的基准利率类型
+	 */
+	string baseIRType=288;
+	/**
+	 * 证券编码（symbol+market）
+	 */
+	string combSymbol=293;
+	/**
+	 * 债项投资推荐评级表 IA_RATING_BOND_INVEST_RCMD
+	 * 不能新增买入
+	 */
+	bool isIANotInvest=300;
+	/**
+	 * 清算场所<>001=1=中债登&002=2=上清所&003=3=中债登上海分公司&004=4=中债登深圳分公司
+	 */
+	string settingHcode=305;
+	/**
+	 * 上市日期
+	 */
+	int64 listDate=310;
+	/**
+	 * 本金偿还方式
+	 */
+	string redemMethod=315;
+	//上清所
+	public static final string SETTING_HCODE_SH = "SH"=318;
+	//中债登
+	public static final string SETTING_HCODE_IB = "IB"=320;
+}
