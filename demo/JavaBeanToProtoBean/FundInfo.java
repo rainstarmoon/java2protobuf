@@ -151,4 +151,81 @@ public class FundInfo {
         return value;
     }
 
+    public REDataFund.FundInfo convertPbBean() {
+        FundInfo value = this;
+        REDataFund.FundInfo.Builder builder = REDataFund.FundInfo.newBuilder();
+        if (value.getFundCode() != null) {
+            builder.setFundCode(value.getFundCode());
+        }
+        if (value.getIaCode() != null) {
+            builder.setIaCode(value.getIaCode());
+        }
+        if (value.getParent() != null) {
+            builder.setParent(value.getParent());
+        }
+        if (value.getName() != null) {
+            builder.setName(value.getName());
+        }
+        if (value.getAssetUnitCode() != null) {
+            builder.setAssetUnitCode(value.getAssetUnitCode());
+        }
+        if (value.getCompanyCode() != null) {
+            builder.setCompanyCode(value.getCompanyCode());
+        }
+        if (value.getStartDate() != null) {
+            builder.setStartDate(value.getStartDate().getTime());
+        }
+        if (value.getValueDate() != null) {
+            builder.setValueDate(value.getValueDate().getTime());
+        }
+        builder.setIsMoneyFund(value.isMoneyFund());
+        builder.setIsPublicFund(value.isPublicFund());
+        builder.setIsSocialFund(value.isSocialFund());
+        if (value.getCustodianBank() != null) {
+            builder.setCustodianBank(value.getCustodianBank());
+        }
+        if (value.getListOfShares() != null) {
+            builder.addAllListOfShares(value.getListOfShares());
+        }
+        if (value.getDepositeRate() != null) {
+            builder.setDepositeRate(value.getDepositeRate());
+        }
+        builder.setIsIABBPool(value.isIABBPool());
+        builder.setIsIALowRisk(value.isIALowRisk());
+        if (value.getRiskLevel() != null) {
+            builder.setRiskLevel(value.getRiskLevel());
+        }
+        if (value.getTop10RatioYesterday() != null) {
+            builder.setTop10RatioYesterday(value.getTop10RatioYesterday());
+        }
+        if (value.getTop10RatioToday() != null) {
+            builder.setTop10RatioToday(value.getTop10RatioToday());
+        }
+        if (value.getProdStatus() != null) {
+            builder.setProdStatus(value.getProdStatus());
+        }
+        if (value.getBeginDate() != null) {
+            builder.setBeginDate(value.getBeginDate().getTime());
+        }
+        if (value.getEndDate() != null) {
+            builder.setEndDate(value.getEndDate().getTime());
+        }
+        if (value.getIbAccountNum() != null) {
+            builder.setIbAccountNum(value.getIbAccountNum());
+        }
+        if (value.getIbDvpPayeeNum() != null) {
+            builder.setIbDvpPayeeNum(value.getIbDvpPayeeNum());
+        }
+        if (value.getShchAccountNum() != null) {
+            builder.setShchAccountNum(value.getShchAccountNum());
+        }
+        if (value.getShchDvpPayeeNum() != null) {
+            builder.setShchDvpPayeeNum(value.getShchDvpPayeeNum());
+        }
+        if (value.getMFundElements() != null) {
+            builder.putAllMFundElements(value.getMFundElements());
+        }
+        return builder.build();
+    }
+
 }

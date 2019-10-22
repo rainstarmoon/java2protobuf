@@ -1,0 +1,67 @@
+message FuturesPrice {
+//    /**
+//     * 期货内部代码
+//     */
+//    private String futHcode;
+//
+//    /**
+//     * 咨询商内部编码
+//     */
+//    private Integer innercode;
+    /**
+     * 交易日期
+     */
+  int64 tradeDate = 1;
+    /**
+     * 合约名称/编码
+     */
+  string ctrName = 2;
+//    /**
+//     * 品种代码/合约标的
+//     */
+//    private Integer optionCode;
+    /**
+     * 前结算
+     */
+  double lsettlePrice = 3;
+    /**
+     * 开盘价
+     */
+  double openPrice = 4;
+    /**
+     * 最高价
+     */
+  double highPrice = 5;
+    /**
+     * 最低价
+     */
+  double lowPrice = 6;
+    /**
+     * 收盘价
+     */
+  double closePrice = 7;
+    /**
+     * 结算价
+     */
+  double settlePrice = 8;
+    /**
+     * 收盘价涨跌幅(%)
+     */
+  double changePct = 9;
+    /**
+     * 持仓量(手)
+     */
+  int64 openInterest = 10;
+    /**
+     * 成交量(手)
+     */
+  int64 dealVol = 11;
+    /**
+     * 成交金额(元)
+     */
+  double dealAmt = 12;
+    /**
+     * 基差, 当“合约类型”为股指期货，基差 = 期货市场收盘价-现货市场收盘价
+     */
+  double basisValue = 13;
+}

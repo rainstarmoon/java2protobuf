@@ -1,1 +1,0 @@
-java -jar java2protobuf-1.0.jar --in:./BondInfo.java --out:./temp.proto
