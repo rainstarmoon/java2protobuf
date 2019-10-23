@@ -1,6 +1,7 @@
 package com.xiazeyu.tool;
 
 import com.xiazeyu.util.FileUtil;
+import com.xiazeyu.util.MainArgsUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,19 +28,16 @@ public class JavaBeanToProtoBean {
     public static void init(String[] args) {
         contextList = new ArrayList<>();
         resultList = new ArrayList<>();
-//        MainArgsUtil.analysis(args);
+        MainArgsUtil.analysis(args);
 //        inputPath = MainArgsUtil.argMap.get("in");
 //        outputPath = MainArgsUtil.argMap.get("out");
-//        pbBeanName = MainArgsUtil.argMap.get("name");
-//        javaBeanName = pbBeanName.split("[.]")[1];
-//
+        pbBeanName = MainArgsUtil.argMap.get("name");
+        javaBeanName = pbBeanName.split("[.]")[1];
 //        if (inputPath == null || outputPath == null) {
 //            throw new RuntimeException("输入参数有误");
 //        }
-        inputPath = "D:\\Github_Workspace\\java2protobuf\\demo\\JavaBeanToProtoBean\\FundInfo.java";
+        inputPath = "D:\\Github_Workspace\\java2protobuf\\demo\\JavaBeanToProtoBean\\javaBean.txt";
         outputPath = "D:\\Github_Workspace\\java2protobuf\\demo\\JavaBeanToProtoBean\\protoBean.txt";
-        pbBeanName = "REDataFund.FundInfo";
-        javaBeanName = "FundInfo";
     }
 
     public static void transform() {
@@ -82,7 +80,9 @@ public class JavaBeanToProtoBean {
         for (String context : fields) {
             DataModel analysis = analysis(context);
 
-            if (!analysis.fieldType.equals("boolean")) {
+            if (!analysis.fieldType.equals("boolean")
+                    && !analysis.fieldType.equals("int")
+                    && !analysis.fieldType.equals("double")) {
                 resultList.add("\t\tif (" + sourceObjName + "." + analysis.getFieldGetMethod(null) + "() != null) {");
             }
 
@@ -94,7 +94,9 @@ public class JavaBeanToProtoBean {
             }
             resultList.add("\t\t\t" + targetObjName + "." + analysis.getFieldSetMethod() + "(" + sourceObjName + "." + fieldGetMethod + "()" + ");");
 
-            if (!analysis.fieldType.equals("boolean")) {
+            if (!analysis.fieldType.equals("boolean")
+                    && !analysis.fieldType.equals("int")
+                    && !analysis.fieldType.equals("double")) {
                 resultList.add("\t\t}");
             }
         }
@@ -120,6 +122,8 @@ public class JavaBeanToProtoBean {
         public String getFieldSetMethod() {
             String value = null;
             if (fieldType.contains("List")) {
+                value = "addAll";
+            } else if (fieldType.contains("Set")) {
                 value = "addAll";
             } else if (fieldType.contains("Map")) {
                 value = "putAll";

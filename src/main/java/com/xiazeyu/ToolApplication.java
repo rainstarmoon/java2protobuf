@@ -6,7 +6,9 @@ import com.xiazeyu.tool.JavaFileToProtoFile;
 public class ToolApplication {
 
     public static void main(String[] args) {
-        javaBeanToProtoBean(args);
+        String name = "REDataStock.StockSuspensionInfo";
+        javaBeanToProtoBean(new String[]{"--name=" + name});
+        System.out.println("over");
     }
 
     /**
