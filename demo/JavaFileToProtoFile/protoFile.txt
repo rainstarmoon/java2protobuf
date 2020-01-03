@@ -1,0 +1,82 @@
+message FundPositionLoadInParam {
+    /**
+     * 估值节点编码
+     */
+  optional string vCode = 1;
+    /**
+     * 估值日
+     */
+  optional int64 vDate = 2;
+    /**
+     * 证券类型
+     */
+  optional string secuType = 3;
+    /**
+     * 证券代码（内部代码）
+     */
+  optional string secuCode = 4;
+    /**
+     * 市场代码
+     */
+  optional string marketCode = 5;
+    /**
+     * 证券外部代码
+     */
+  optional string symbol = 6;
+    /**
+     * 证券账户
+     */
+  optional string securityAccountCode = 7;
+    /**
+     * 券商代码
+     */
+  optional string brokerCode = 8;
+    /**
+     * 成本_期初
+     */
+  optional double psCost = 9;
+    /**
+     * 单位持仓成本
+     */
+  optional double unitCost = 10;
+    /**
+     * 市值_期初
+     */
+  optional double psMktv = 11;
+    /**
+     * 估值数量_期初
+     */
+  optional double psValuationQty = 12;
+    /**
+     * 估值价格_期初
+     */
+  optional double psValuationPrice = 13;
+    /**
+     * 冻结数量_期初
+     */
+  optional double psFrozenQty = 14;
+    /**
+     * 估值损益_期初 （6101）
+     */
+  optional double psValueGl = 15;
+    /**
+     * 投资收益_期初 （6111）
+     */
+  optional double psInvestementIncome = 16;
+    /**
+     * 应收红利_期初
+     */
+  optional double psReceivableDividend = 17;
+    /**
+     * 红利收入_期初
+     */
+  optional double psDividendIncome = 18;
+    /**
+     * 增值税_期初
+     */
+  optional double psValueAddedTax = 19;
+    /**
+     * 币种
+     */
+  optional string currency = 20;
+}

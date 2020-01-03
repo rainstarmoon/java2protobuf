@@ -1,20 +1,95 @@
-	public REDataStock.StockSuspensionInfo convertPbBean() {
-		StockSuspensionInfo value = this;
-		REDataStock.StockSuspensionInfo.Builder builder = REDataStock.StockSuspensionInfo.newBuilder();
-		if (value.getCombSymbol() != null) {
-			builder.setCombSymbol(value.getCombSymbol());
+	public T3Initer.IborFundDiviData convertPbBean() {
+		IborFundDiviData value = this;
+		T3Initer.IborFundDiviData.Builder builder = T3Initer.IborFundDiviData.newBuilder();
+		if (value.getFundCode() != null) {
+			builder.setFundCode(value.getFundCode());
 		}
-		if (value.getTradeDate() != null) {
-			builder.setTradeDate(value.getTradeDate().getTime());
+		if (value.getSecuCode() != null) {
+			builder.setSecuCode(value.getSecuCode());
 		}
-		if (value.getSecHcode() != null) {
-			builder.setSecHcode(value.getSecHcode());
+		if (value.getAnncDate() != null) {
+			builder.setAnncDate(value.getAnncDate().getTime());
 		}
-		if (value.getSuspSign() != null) {
-			builder.setSuspSign(value.getSuspSign());
+		if (value.getOeRegDate() != null) {
+			builder.setOeRegDate(value.getOeRegDate().getTime());
 		}
-		if (value.getSuspStdate() != null) {
-			builder.setSuspStdate(value.getSuspStdate().getTime());
+		if (value.getXdDate() != null) {
+			builder.setXdDate(value.getXdDate().getTime());
+		}
+		if (value.getDistriDate() != null) {
+			builder.setDistriDate(value.getDistriDate().getTime());
+		}
+		if (value.getRvtDate() != null) {
+			builder.setRvtDate(value.getRvtDate().getTime());
+		}
+		if (value.getAtDate() != null) {
+			builder.setAtDate(value.getAtDate().getTime());
+		}
+		if (value.getDiviQty() != null) {
+			builder.setDiviQty(value.getDiviQty());
+		}
+		if (value.getDiviAmt() != null) {
+			builder.setDiviAmt(value.getDiviAmt());
+		}
+		if (value.getDiviPershare() != null) {
+			builder.setDiviPershare(value.getDiviPershare());
+		}
+		if (value.getSource() != null) {
+			builder.setSource(value.getSource());
+		}
+		if (value.getCreateTime() != null) {
+			builder.setCreateTime(value.getCreateTime().getTime());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getStatic() != null) {
+			builder.setStatic(value.getStatic());
+		}
+		if (value.getFinal() != null) {
+			builder.setFinal(value.getFinal());
 		}
 		return builder.build();
 	}

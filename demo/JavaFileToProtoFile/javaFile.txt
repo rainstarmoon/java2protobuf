@@ -1,0 +1,110 @@
+package com.iquantex.ibor.valuation.fund.param;
+
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class FundPositionLoadInParam {
+
+    /**
+     * 估值节点编码
+     */
+    private String vCode;
+
+    /**
+     * 估值日
+     */
+    private long vDate;
+
+    /**
+     * 证券类型
+     */
+    private String secuType;
+
+    /**
+     * 证券代码（内部代码）
+     */
+    private String secuCode;
+
+    /**
+     * 市场代码
+     */
+    private String marketCode;
+
+    /**
+     * 证券外部代码
+     */
+    private String symbol;
+
+    /**
+     * 证券账户
+     */
+    private String securityAccountCode;
+
+    /**
+     * 券商代码
+     */
+    private String brokerCode;
+
+    /**
+     * 成本_期初
+     */
+    private double psCost;
+
+    /**
+     * 单位持仓成本
+     */
+    private double unitCost;
+
+    /**
+     * 市值_期初
+     */
+    private double psMktv;
+
+    /**
+     * 估值数量_期初
+     */
+    private double psValuationQty;
+
+    /**
+     * 估值价格_期初
+     */
+    private double psValuationPrice;
+
+    /**
+     * 冻结数量_期初
+     */
+    private double psFrozenQty;
+
+    /**
+     * 估值损益_期初 （6101）
+     */
+    private double psValueGl;
+
+    /**
+     * 投资收益_期初 （6111）
+     */
+    private double psInvestementIncome;
+
+    /**
+     * 应收红利_期初
+     */
+    private double psReceivableDividend;
+
+    /**
+     * 红利收入_期初
+     */
+    private double psDividendIncome;
+
+    /**
+     * 增值税_期初
+     */
+    private double psValueAddedTax;
+
+    /**
+     * 币种
+     */
+    private String currency;
+}

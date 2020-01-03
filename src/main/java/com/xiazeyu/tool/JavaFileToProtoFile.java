@@ -16,16 +16,27 @@ public class JavaFileToProtoFile {
 
     static String PLACEHOLDER = "$";
 
+    static String VERSION_FLAG = "optional ";
+
     public static void init(String[] args) {
         contextList = new ArrayList<>();
         MainArgsUtil.analysis(args);
         inputPath = MainArgsUtil.argMap.get("in");
         outputPath = MainArgsUtil.argMap.get("out");
-        if (inputPath == null || outputPath == null) {
-            throw new RuntimeException("输入参数有误");
+//        if (inputPath == null || outputPath == null) {
+//            throw new RuntimeException("输入参数有误");
+//        }
+        String version = MainArgsUtil.argMap.get("version");
+        if (version != null) {
+            // 默认为2版本
+            if("v2".equals(version)){
+                VERSION_FLAG = "optional ";
+            }else if("v3".equals(version)){
+                VERSION_FLAG = "";
+            }
         }
-        //inputPath = "E:\\workspace_idea\\java2protobuf\\demo\\BondInfo.java";
-        //outputPath = "E:\\workspace_idea\\java2protobuf\\demo\\temp.proto";
+        inputPath = "D:\\Github_Workspace\\java2protobuf\\demo\\JavaFileToProtoFile\\javaFile.txt";
+        outputPath = "D:\\Github_Workspace\\java2protobuf\\demo\\JavaFileToProtoFile\\protoFile.txt";
     }
 
     public static void transform() {
@@ -39,7 +50,7 @@ public class JavaFileToProtoFile {
                 beginIndex = i;
                 continue;
             }
-            if (beginIndex > 0 && temp.contains("{")) {
+            if (beginIndex > 0 && (temp.contains("{") || temp.contains("}"))) {
                 endIndex = i;
                 break;
             }
@@ -64,23 +75,24 @@ public class JavaFileToProtoFile {
             contextMap.put(num, contextList.get(num)
                     .replace("public class", "message")
                     .replace("private ", "")
-                    .replace("int ", "int32 ")
-                    .replace("Integer ", "int32 ")
+                    .replace("int ", VERSION_FLAG + "int32 ")
+                    .replace("Integer ", VERSION_FLAG + "int32 ")
                     .replace("Integer,", "int32,")
                     .replace("Integer>", "int32 ")
-                    .replace("long ", "int64 ")
-                    .replace("Long ", "int64 ")
+                    .replace("long ", VERSION_FLAG + "int64 ")
+                    .replace("Long ", VERSION_FLAG + "int64 ")
                     .replace("Long,", "int64,")
                     .replace("Long>", "int64 ")
-                    .replace("Double ", "double ")
+                    .replace("double ", VERSION_FLAG + "double ")
+                    .replace("Double ", VERSION_FLAG + "double ")
                     .replace("Double>", "double ")
-                    .replace("boolean ", "bool ")
-                    .replace("Boolean ", "bool ")
+                    .replace("boolean ", VERSION_FLAG + "bool ")
+                    .replace("Boolean ", VERSION_FLAG + "bool ")
                     .replace("Boolean>", "bool ")
-                    .replace("Date ", "int64 ")
+                    .replace("Date ", VERSION_FLAG + "int64 ")
                     .replace("Date,", "int64,")
                     .replace("Date>", "int64 ")
-                    .replace("String ", "string ")
+                    .replace("String ", VERSION_FLAG + "string ")
                     .replace("String,", "string,")
                     .replace("String>", "string ")
                     //.replace(">", " ")

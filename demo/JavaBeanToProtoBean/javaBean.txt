@@ -1,58 +1,375 @@
-package com.iquantex.ts.cre.data.model;
+package com.iquantex.ibor.mat.model;
 
-import com.iquantex.ts.cre.data.process.message.protobuf.REDataStock;
-import lombok.Getter;
-import lombok.Setter;
-
+import java.io.Serializable;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import javax.persistence.*;
+import org.apache.ibatis.type.JdbcType;
+import tk.mybatis.mapper.annotation.ColumnType;
 
-@Getter
-@Setter
-public class StockSuspensionInfo {
+@Table(name = "IBOR_FUND_DIVI_DATA")
+public class IborFundDiviData implements Serializable {
     /**
-     * 组合证券编码
+     * 产品code
      */
-    private String combSymbol;
-
-    /**
-     * 交易日期
-     */
-    private Date tradeDate;
+    @Column(name = "FUND_CODE")
+    @ColumnType(jdbcType = JdbcType.VARCHAR)
+    private String fundCode;
 
     /**
-     * 证券内部编码
+     * 证券code
      */
-    private String secHcode;
+    @Column(name = "SECU_CODE")
+    @ColumnType(jdbcType = JdbcType.VARCHAR)
+    private String secuCode;
 
     /**
-     * 停牌标识
+     * 公告日
      */
-    private String suspSign;
+    @Column(name = "ANNC_DATE")
+    @ColumnType(jdbcType = JdbcType.TIMESTAMP)
+    private Date anncDate;
 
     /**
-     * 开始停牌日期
+     * 分红登记日
      */
-    private Date suspStdate;
+    @Column(name = "OE_REG_DATE")
+    @ColumnType(jdbcType = JdbcType.TIMESTAMP)
+    private Date oeRegDate;
 
-    public StockSuspensionInfo parserPbBean(REDataStock.StockSuspensionInfo bean) {
-        StockSuspensionInfo value = this;
-        value.setCombSymbol(bean.getCombSymbol());
-        value.setTradeDate(new Date(bean.getTradeDate()));
-        value.setSecHcode(bean.getSecHcode());
-        value.setSuspSign(bean.getSuspSign());
-        value.setSuspStdate(new Date(bean.getSuspStdate()));
-        return value;
+    /**
+     * 分红除权日，现金分红
+     */
+    @Column(name = "XD_DATE")
+    @ColumnType(jdbcType = JdbcType.TIMESTAMP)
+    private Date xdDate;
+
+    /**
+     * 分红到账日，现金分红
+     */
+    @Column(name = "DISTRI_DATE")
+    @ColumnType(jdbcType = JdbcType.TIMESTAMP)
+    private Date distriDate;
+
+    /**
+     * 红利再投日，红利再投
+     */
+    @Column(name = "RVT_DATE")
+    @ColumnType(jdbcType = JdbcType.TIMESTAMP)
+    private Date rvtDate;
+
+    /**
+     * 红利再投份额到账日， 红利再投
+     */
+    @Column(name = "AT_DATE")
+    @ColumnType(jdbcType = JdbcType.TIMESTAMP)
+    private Date atDate;
+
+    /**
+     * 到账份额，红利再投
+     */
+    @Column(name = "DIVI_QTY")
+    @ColumnType(jdbcType = JdbcType.DECIMAL)
+    private Double diviQty;
+
+    /**
+     * 到账金额
+     */
+    @Column(name = "DIVI_AMT")
+    @ColumnType(jdbcType = JdbcType.DECIMAL)
+    private Double diviAmt;
+
+    /**
+     * 每份额派发金额
+     */
+    @Column(name = "DIVI_PERSHARE")
+    @ColumnType(jdbcType = JdbcType.DECIMAL)
+    private Double diviPershare;
+
+    /**
+     * 数据来源<>FDS=FDS=数据中心&IMF=IMF=货币基金收益结转
+     */
+    @Column(name = "SOURCE")
+    @ColumnType(jdbcType = JdbcType.VARCHAR)
+    private String source;
+
+    /**
+     * 创建时间
+     */
+    @Column(name = "CREATE_TIME")
+    @ColumnType(jdbcType = JdbcType.TIMESTAMP)
+    private Date createTime;
+
+    public static final String TABLE = "IBOR_FUND_DIVI_DATA";
+
+    public static final String f_fundCode = "fundCode";
+
+    public static final String f_secuCode = "secuCode";
+
+    public static final String f_anncDate = "anncDate";
+
+    public static final String f_oeRegDate = "oeRegDate";
+
+    public static final String f_xdDate = "xdDate";
+
+    public static final String f_distriDate = "distriDate";
+
+    public static final String f_rvtDate = "rvtDate";
+
+    public static final String f_atDate = "atDate";
+
+    public static final String f_diviQty = "diviQty";
+
+    public static final String f_diviAmt = "diviAmt";
+
+    public static final String f_diviPershare = "diviPershare";
+
+    public static final String f_source = "source";
+
+    public static final String f_createTime = "createTime";
+
+    /**
+     * 数据中心
+     */
+    public static final String c_source_FDS = "FDS";
+
+    /**
+     * 货币基金收益结转
+     */
+    public static final String c_source_IMF = "IMF";
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 获取产品code
+     *
+     * @return FUND_CODE - 产品code
+     */
+    public String getFundCode() {
+        return fundCode;
     }
 
-
-    public static Map<String, StockSuspensionInfo> parserPbBean(Map<String, REDataStock.StockSuspensionInfo> bean) {
-        Map<String, StockSuspensionInfo> value = new HashMap<>();
-        for (Map.Entry<String, REDataStock.StockSuspensionInfo> entry : bean.entrySet()) {
-            value.put(entry.getKey(), new StockSuspensionInfo().parserPbBean(entry.getValue()));
-        }
-        return value;
+    /**
+     * 设置产品code
+     *
+     * @param fundCode 产品code
+     */
+    public void setFundCode(String fundCode) {
+        this.fundCode = fundCode == null ? null : fundCode.trim();
     }
 
+    /**
+     * 获取证券code
+     *
+     * @return SECU_CODE - 证券code
+     */
+    public String getSecuCode() {
+        return secuCode;
+    }
+
+    /**
+     * 设置证券code
+     *
+     * @param secuCode 证券code
+     */
+    public void setSecuCode(String secuCode) {
+        this.secuCode = secuCode == null ? null : secuCode.trim();
+    }
+
+    /**
+     * 获取公告日
+     *
+     * @return ANNC_DATE - 公告日
+     */
+    public Date getAnncDate() {
+        return anncDate;
+    }
+
+    /**
+     * 设置公告日
+     *
+     * @param anncDate 公告日
+     */
+    public void setAnncDate(Date anncDate) {
+        this.anncDate = anncDate;
+    }
+
+    /**
+     * 获取分红登记日
+     *
+     * @return OE_REG_DATE - 分红登记日
+     */
+    public Date getOeRegDate() {
+        return oeRegDate;
+    }
+
+    /**
+     * 设置分红登记日
+     *
+     * @param oeRegDate 分红登记日
+     */
+    public void setOeRegDate(Date oeRegDate) {
+        this.oeRegDate = oeRegDate;
+    }
+
+    /**
+     * 获取分红除权日，现金分红
+     *
+     * @return XD_DATE - 分红除权日，现金分红
+     */
+    public Date getXdDate() {
+        return xdDate;
+    }
+
+    /**
+     * 设置分红除权日，现金分红
+     *
+     * @param xdDate 分红除权日，现金分红
+     */
+    public void setXdDate(Date xdDate) {
+        this.xdDate = xdDate;
+    }
+
+    /**
+     * 获取分红到账日，现金分红
+     *
+     * @return DISTRI_DATE - 分红到账日，现金分红
+     */
+    public Date getDistriDate() {
+        return distriDate;
+    }
+
+    /**
+     * 设置分红到账日，现金分红
+     *
+     * @param distriDate 分红到账日，现金分红
+     */
+    public void setDistriDate(Date distriDate) {
+        this.distriDate = distriDate;
+    }
+
+    /**
+     * 获取红利再投日，红利再投
+     *
+     * @return RVT_DATE - 红利再投日，红利再投
+     */
+    public Date getRvtDate() {
+        return rvtDate;
+    }
+
+    /**
+     * 设置红利再投日，红利再投
+     *
+     * @param rvtDate 红利再投日，红利再投
+     */
+    public void setRvtDate(Date rvtDate) {
+        this.rvtDate = rvtDate;
+    }
+
+    /**
+     * 获取红利再投份额到账日， 红利再投
+     *
+     * @return AT_DATE - 红利再投份额到账日， 红利再投
+     */
+    public Date getAtDate() {
+        return atDate;
+    }
+
+    /**
+     * 设置红利再投份额到账日， 红利再投
+     *
+     * @param atDate 红利再投份额到账日， 红利再投
+     */
+    public void setAtDate(Date atDate) {
+        this.atDate = atDate;
+    }
+
+    /**
+     * 获取到账份额，红利再投
+     *
+     * @return DIVI_QTY - 到账份额，红利再投
+     */
+    public Double getDiviQty() {
+        return diviQty;
+    }
+
+    /**
+     * 设置到账份额，红利再投
+     *
+     * @param diviQty 到账份额，红利再投
+     */
+    public void setDiviQty(Double diviQty) {
+        this.diviQty = diviQty;
+    }
+
+    /**
+     * 获取到账金额
+     *
+     * @return DIVI_AMT - 到账金额
+     */
+    public Double getDiviAmt() {
+        return diviAmt;
+    }
+
+    /**
+     * 设置到账金额
+     *
+     * @param diviAmt 到账金额
+     */
+    public void setDiviAmt(Double diviAmt) {
+        this.diviAmt = diviAmt;
+    }
+
+    /**
+     * 获取每份额派发金额
+     *
+     * @return DIVI_PERSHARE - 每份额派发金额
+     */
+    public Double getDiviPershare() {
+        return diviPershare;
+    }
+
+    /**
+     * 设置每份额派发金额
+     *
+     * @param diviPershare 每份额派发金额
+     */
+    public void setDiviPershare(Double diviPershare) {
+        this.diviPershare = diviPershare;
+    }
+
+    /**
+     * 获取数据来源<>FDS=FDS=数据中心&IMF=IMF=货币基金收益结转
+     *
+     * @return SOURCE - 数据来源<>FDS=FDS=数据中心&IMF=IMF=货币基金收益结转
+     */
+    public String getSource() {
+        return source;
+    }
+
+    /**
+     * 设置数据来源<>FDS=FDS=数据中心&IMF=IMF=货币基金收益结转
+     *
+     * @param source 数据来源<>FDS=FDS=数据中心&IMF=IMF=货币基金收益结转
+     */
+    public void setSource(String source) {
+        this.source = source == null ? null : source.trim();
+    }
+
+    /**
+     * 获取创建时间
+     *
+     * @return CREATE_TIME - 创建时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 设置创建时间
+     *
+     * @param createTime 创建时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }
