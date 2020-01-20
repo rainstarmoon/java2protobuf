@@ -6,8 +6,8 @@ import com.xiazeyu.tool.JavaFileToProtoFile;
 public class ToolApplication {
 
     public static void main(String[] args) {
-        //String name = "T3Initer.IborFundDiviData";
-        javaFileToProtoFile(new String[]{});
+        String name = "T3Initer.IborFundDiviData";
+        javaBeanToProtoBean(new String[]{name});
         System.out.println("over");
     }
 

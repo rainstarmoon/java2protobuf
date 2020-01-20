@@ -8,7 +8,7 @@ public class FileUtil {
     public static void inputJavaFile(String inputPath, List<String> contextList) {
         BufferedReader read = null;
         try {
-            read = new BufferedReader(new InputStreamReader(new FileInputStream(inputPath), "UTF8"));
+            read = new BufferedReader(new InputStreamReader(new FileInputStream(inputPath), "UTF-8"));
             String readLine;
             while ((readLine = read.readLine()) != null) {
                 contextList.add(readLine);
@@ -29,7 +29,7 @@ public class FileUtil {
     public static void outputProtoFile(String outputPath, List<String> contextList) {
         BufferedWriter out = null;
         try {
-            out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outputPath), "UTF8"));
+            out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outputPath), "UTF-8"));
             for (String context : contextList) {
                 out.write(context);
                 out.newLine();
